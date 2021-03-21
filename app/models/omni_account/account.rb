@@ -1,0 +1,2 @@
+class OmniAccount::Account
+end
