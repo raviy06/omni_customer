@@ -1,0 +1,13 @@
+= form_for @role do |f|
+  - if @role.errors.any?
+    = errors_for @role
+
+  .form-group.mt-4
+    = f.label 'Name of the Role', class: 'required'
+    = f.text_field :name, class: 'form-control', required: true
+
+  .form-group.mt-4
+    = f.label 'Role Code', class: 'required'
+    = f.text_field :code, class: 'form-control', required: true
+
+  = f.submit 'Save', class: 'btn btn-primary'

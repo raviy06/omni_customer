@@ -1,0 +1,11 @@
+.card
+  .card-header
+    .flex.justify-between
+      = "Role ##{@role.id}"
+      #actions
+        = link_to 'Edit', edit_role_path(@role), class: 'btn btn-sm btn-light'
+        = link_to 'Back', :back, class: 'btn btn-sm btn-red'
+  .card-body
+    %p Name: #{@role.name}
+    %p Code: #{@role.code}
+

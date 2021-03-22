@@ -1,0 +1,43 @@
+<nav class="bg-gray-800 fixed top-0 right-0 left-0" style="z-index: 1000;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <div class="flex-shrink-0 text-bold text-white mr-4">
+          <%= link_to root_path do %>
+            OmniCustomer
+          <% end %>
+        </div>
+        <% if user_signed_in? %>
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline">
+              <a href="<%= account_path %>" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Account
+              </a>
+              <% if can? :read, Role %>
+                <a href="/roles" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Roles
+                </a>
+              <% end %>
+              <% if can? :read, User %>
+                <a href="/customers" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Customers
+                </a>
+              <% end %>
+              <!-- <a href="#" class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Reports -->
+              <!-- </a> -->
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="hidden md:block">
+        <div class="ml-4 flex items-center md:ml-6 text-white">
+          <% if user_signed_in? %>
+            Signed in as <%= current_user.name %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-red ml-2' %>
+          <% else %>
+            <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary'  %>
+            <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary ml-2'  %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

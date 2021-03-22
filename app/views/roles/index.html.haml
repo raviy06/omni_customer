@@ -1,0 +1,26 @@
+.card
+  .card-header 
+    .flex.flex-wrap.justify-between
+      Roles
+      = link_to 'New Role', new_role_path, class: 'btn btn-sm btn-primary'
+  %table.min-w-full.border-r.border-l.rounded-b.border-gray-200
+    %thead
+      %tr
+        %th.t-head Name
+        %th.t-head Code
+        %th.t-head
+
+    %tbody
+      - @roles.each do |role|
+        %tr
+          %td.t-row= role.name
+          %td.t-row= role.code
+          %td.t-row
+            = link_to 'Show', role, class: 'btn btn-light btn-sm'
+            - if current_user.can? :edit, role
+              = link_to 'Edit', edit_role_path(role), class: 'btn btn-light btn-sm'
+              
+            - if current_user.can? :destroy, role
+              = link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm'
+
+%br

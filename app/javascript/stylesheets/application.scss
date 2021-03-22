@@ -1,0 +1,103 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.card {
+  @apply w-full rounded overflow-hidden shadow;
+}
+
+.card-body {
+  @apply px-6 py-4;
+}
+
+.card-header {
+  @apply border-b border-gray-200 bg-white text-left text-sm leading-5 font-normal text-gray-500 px-6 py-3 uppercase tracking-wider;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+@media only screen and (min-width: 324px) and (max-width: 768px) {
+  .container {
+    @apply max-w-7xl mx-auto px-6;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .container {
+    @apply max-w-7xl mx-auto px-8;
+  }
+}
+
+.card-footer {
+  @apply bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200;
+}
+
+.btn{
+  @apply rounded shadow py-2 px-4;
+}
+
+.btn-primary {
+  @apply bg-indigo-500 text-white;
+}
+
+.btn-primary:hover {
+  @apply bg-indigo-700 text-white;
+}
+
+.t-head{
+  @apply px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider; 
+}
+
+.table-header {
+  @apply px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-sm leading-5 font-normal text-gray-500 uppercase tracking-wider;
+}
+
+.t-row {
+  @apply px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500;
+}
+
+.btn-red {
+  @apply bg-red-500 text-white shadow-md border-red-500;
+}
+
+.btn-red:hover {
+  @apply bg-red-600;
+}
+
+.form-group{
+  @apply mb-6;
+}
+
+.btn-sm{
+  @apply py-1 px-2;
+}
+
+.form-group label {
+  @apply block text-gray-700 font-bold mb-2 uppercase tracking-wide text-xs;
+}
+
+.form-group input {
+  @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight;
+}
+
+.form-group input:focus {
+  @apply outline-none bg-white border-gray-500;
+}
+
+.form-group textarea {
+  @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight;
+}
+
+.form-group textarea:focus {
+  @apply outline-none bg-white border-gray-500;
+}
+
+.form-group select {
+  @apply block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight;
+}
+
+.form-group select:focus {
+  @apply outline-none bg-white border-gray-500;
+}

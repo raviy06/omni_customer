@@ -1,0 +1,25 @@
+.card
+  .card-header
+    Customers
+  %table.min-w-full.border-r.border-l.rounded-b.border-gray-200
+    %thead
+      %tr
+        %th.t-head Name
+        %th.t-head Email
+        %th.t-head Gender
+        %th.t-head Date of Birth
+        %th.t-head
+
+    %tbody
+      - @customers.each do |customer|
+        %tr
+          %td.t-row= customer.name
+          %td.t-row= customer.email
+          %td.t-row= customer.gender
+          %td.t-row= customer.date_of_birth.strftime('%d %m %y')
+          %td.t-row
+            = link_to 'Show', customer, class: 'btn btn-light btn-sm'
+            - if can? :edit, customer
+              = link_to 'Edit', edit_user_path(customer), class: 'btn btn-light btn-sm'
+
+%br

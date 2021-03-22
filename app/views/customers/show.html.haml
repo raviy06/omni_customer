@@ -1,0 +1,15 @@
+.card
+  .card-header
+    .flex.justify-between
+      = "User ##{@customer.uid}"
+      #actions
+        = link_to 'Back', :back, class: 'btn btn-sm btn-red'
+  .card-body
+    %p Name: #{@customer.name}
+    %p Email: #{@customer.email}
+    %p Gender: #{@customer.gender}
+    %p Date of Birth: #{@customer.date_of_birth.strftime('%d %m %y')}
+    %p Account ID: #{@account.uid}
+    %p Minor: #{@account.minor_indicator ? 'YES' : 'NO'}
+    %p Account Opened At: #{DateTime.parse(@account.opened_at).strftime('%d %m %y')}
+
