@@ -22,7 +22,7 @@ class OmniAccount::Account
 
     def find_by_customer_id id
       response = Typhoeus.get("#{OmniCustomerConfiguration.config.omni_account_url}/api/v1/accounts/#{id}")
-      response.success? ? serialize_account(JSON.parse(response.body)) : false
+      response.success? ? serialize_account(JSON.parse(response.body)) : OmniAccount::Account.new
     end
 
     private

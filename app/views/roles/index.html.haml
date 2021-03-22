@@ -17,10 +17,10 @@
           %td.t-row= role.code
           %td.t-row
             = link_to 'Show', role, class: 'btn btn-light btn-sm'
-            - if current_user.can? :edit, role
+            - if can? :edit, role
               = link_to 'Edit', edit_role_path(role), class: 'btn btn-light btn-sm'
               
-            - if current_user.can? :destroy, role
+            - if can? :destroy, role
               = link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-light btn-sm'
 
 %br

@@ -1,0 +1,29 @@
+.card
+  .card-header 
+    .flex.flex-wrap.justify-between 
+      Editing customer
+      = link_to 'Back', :back, class: 'btn btn-sm btn-red'
+  .card-body
+    = form_for @customer do |f|
+      - if @customer.errors.any?
+        = errors_for @customer
+
+      .form-group.mt-4
+        = f.label 'Name of the Role', class: 'required'
+        = f.text_field :name, class: 'form-control', required: true
+
+      .form-group.mt-4
+        = f.label 'Email', class: 'required'
+        = f.email_field :email, class: 'form-control', required: true
+
+      .form-group.mt-4
+        = f.label 'Gender', class: 'required'
+        = f.select :gender, options_for_select(['Male', 'Female']), { required:  true }, {class: 'form-control'}
+
+      .form-group.mt-4
+        = f.label 'Name of the Role', class: 'required'
+        = f.date_field :date_of_birth, class: 'form-control', required: true
+        
+
+      = f.submit 'Save', class: 'btn btn-primary'
+

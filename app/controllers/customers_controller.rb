@@ -1,23 +1,19 @@
 class CustomersController < ApplicationController
+  load_and_authorize_resource :class => "User"
   before_action :set_customer, except: :index
   before_action :set_account, except: [:index, :update]
 
   def index
     @customers = User.all
-    authorize! :read, User
   end
 
   def show
-    authorize! :read, User
   end
 
   def edit
-    authorize! :edit, User
   end
 
-  def update
-    authorize! :manage, User
-    
+  def update    
     if @customer.update(customer_params)
       redirect_to users_path, notice: 'Customer Updated'
     else

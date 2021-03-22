@@ -5,8 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-manager = Role.create! name: 'Manager', code: 'M'
-customer = Role.create! name: 'Customer', code: 'C'
+manager_role = Role.find_by name: 'Manager', code: 'M'
+manager_role = Role.create! name: 'Manager', code: 'M' if manager_role.blank?
+customer_role = Role.find_by name: 'Customer', code: 'C'
+customer_role = Role.create! name: 'Customer', code: 'C' if customer_role.blank?
 
-User.create! name: 'Test Customer', email: 'customer@test.com', password: 'customer123', password_confirmation: 'customer123', gender: 'Male', date_of_birth: Time.now - 10.years, role_id: customer.id
-User.create! name: 'Test Manager', email: 'manager@test.com', password: 'manager123', password_confirmation: 'manager123', gender: 'Male', date_of_birth: Time.now - 20.years, role_id: manager.id
+customer = User.find_by email: 'customer@test.com'
+customer.update role_id: customer_role.id
+User.create! name: 'Test Customer', email: 'customer@test.com', password: 'customer123', password_confirmation: 'customer123', gender: 'Male', date_of_birth: Time.now - 10.years, role_id: customer_role.id if customer.blank?
+
+
+manager = User.find_by email: 'manager@test.com'
+manager.update role_id: manager_role.id
+User.create! name: 'Test Manager', email: 'manager@test.com', password: 'manager123', password_confirmation: 'manager123', gender: 'Male', date_of_birth: Time.now - 20.years, role_id: manager_role.id if manager.blank?
