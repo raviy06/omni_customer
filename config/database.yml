@@ -82,5 +82,6 @@ test:
 production:
   <<: *default
   database: omni_customer_production
-  username: omni_customer
-  password: <%= ENV['OMNI_CUSTOMER_DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_URL'] %>
+  # username: omni_customer
+  # password: <%= ENV['OMNI_CUSTOMER_DATABASE_PASSWORD'] %>

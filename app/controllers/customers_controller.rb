@@ -1,5 +1,4 @@
 class CustomersController < ApplicationController
-  skip_before_action :load_and_authorize_resource
   before_action :set_customer, except: :index
   before_action :set_account, except: [:index, :update]
 
