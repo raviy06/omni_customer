@@ -12,8 +12,6 @@ class User < ApplicationRecord
   after_create :initialize_account
   before_create :set_role
 
-  attr_accessor :branch
-
   def customer?
     role.customer?
   end
